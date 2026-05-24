@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration | Taxi Paris</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="index.html">
+                <i class="fa-solid fa-taxi"></i>
+                <span>
+                    <strong>TAXI PARIS</strong>
+                    <small>Administration</small>
+                </span>
+            </a>
+
+            <div class="nav-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Retour au site
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-page">
+        <div class="admin-shell">
+            <div class="admin-top">
+                <div>
+                    <p class="eyebrow">Réservations</p>
+                    <h1>Demandes reçues</h1>
+                </div>
+            </div>
+
+            <form class="admin-login" id="admin-login">
+                <label>
+                    Code administrateur
+                    <input type="password" id="admin-code" placeholder="Exemple : 1234" required>
+                </label>
+
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa-solid fa-lock-open"></i>
+                    Voir
+                </button>
+            </form>
+
+            <p class="form-status" id="admin-status" aria-live="polite"></p>
+
+            <section class="reservation-list" id="reservation-list" aria-live="polite">
+                <p>Entrez le code administrateur pour voir les réservations.</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

@@ -3,322 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Paris</title>
-
-    <!-- CSS -->
+    <title>Taxi Paris | Réservation 24h/24</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
-<script src="script.js"></script>
-
 <body>
-
-    <!-- HEADER -->
     <header>
-
-        <!-- NAVBAR -->
         <nav class="navbar">
-
-            <!-- LOGO -->
-            <div class="logo">
+            <a class="logo" href="#accueil" aria-label="Retour à l'accueil">
                 <i class="fa-solid fa-taxi"></i>
-                <div>
-                    <h2>TAXI PARIS</h2>
-                    <p>24H/24 - 7J/7</p>
-                </div>
-            </div>
+                <span>
+                    <strong> G7 </strong>
+                    <small>24H/24 - 7J/7</small>
+                </span>
+            </a>
 
-            <!-- MENU -->
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#reservation">Réservation</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <!-- BUTTONS -->
             <div class="nav-buttons">
-
-                <a href="tel:0758135261" class="call-btn">
+                <a href="tel:0753172268" class="btn btn-primary">
                     <i class="fa-solid fa-phone"></i>
                     Appeler
                 </a>
-
-                <a href="https://wa.me/33612345678"
-                   target="_blank"
-                   class="whatsapp-btn">
-
+                <a href="https://wa.me/+33753172268" target="_blank" class="btn btn-whatsapp" rel="noreferrer">
                     <i class="fa-brands fa-whatsapp"></i>
                     WhatsApp
                 </a>
-<!-- MENU MOBILE -->
-
-                 <div class="menu-toggle">
-
-                        <i class="fa-solid fa-bars"></i>
-
-                 </div>
             </div>
-
         </nav>
-
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <main>
         <section class="hero" id="accueil">
+            <img src="images/taxi-hero.jpg" alt="Taxi parisien de nuit">
+            <div class="overlay"></div>
 
-        <!-- IMAGE -->
-        <img src="images/taxi-hero.jpg" alt="Taxi Paris">
+            <div class="hero-content">
+                <p class="eyebrow">Chauffeur privé et taxi à Paris</p>
+                <h1>Votre taxi à Paris</h1>
+                <p>
+                    Réservez un trajet simple, rapide et confortable dans Paris,
+                    vers les gares, les aéroports et toute l'Île-de-France.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#reservation" class="btn btn-primary">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        Réserver
+                    </a>
+                    <a href="tel:0753172268" class="btn btn-light">
+                        <i class="fa-solid fa-phone"></i>
+                        Appeler
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <!-- OVERLAY -->
-        <div class="overlay"></div>
+        <section class="reservation-section" id="reservation">
+            <div class="section-heading">
+                <p class="eyebrow">Demande de réservation</p>
+                <h2>Réserver un trajet</h2>
+                <p>Remplissez le formulaire. Votre demande sera ensuite confirmée par le chauffeur.</p>
+            </div>
 
-        <!-- CONTENT -->
-        <div class="hero-content">
+            <form class="booking-form" id="booking-form">
+                <div class="form-grid">
+                    <label>
+                        Nom complet
+                        <input type="text" name="name" autocomplete="name" required>
+                    </label>
 
-            <h1>
-                VOTRE TAXI <br>
-                À PARIS
-            </h1>
+                    <label>
+                        Téléphone
+                        <input type="tel" name="phone" autocomplete="tel" pattern="^(\+33|0)[1-9](\d{2}){4}$"  placeholder="06 12 34 56 78"
+  title="Veuillez entrer un numéro français valide" required>
+                    </label>
 
-            <h2>24H/24 - 7J/7</h2>
+                    <label>
+                        Email
+                        <input type="email" name="email" autocomplete="email" placeholder="votre@email.com" required>
+                    </label>
 
-            <p>
-                Déplacements simples, rapides et sécurisés
-                dans tout Paris et Île-de-France.
-            </p>
+                    <label>
+                        Nombre de passagers
+                        <input type="number" name="passengers" min="1" max="8" value="1" required>
+                    </label>
 
-            <!-- HERO BUTTONS -->
-            <div class="hero-buttons">
+                    <label>
+                        Adresse de départ
+                        <input type="text" name="pickup" autocomplete="street-address" placeholder="Exemple : 123 Rue victor hugo, 75001 Paris" required>
+                    </label>
 
-                <a href="tel:0612345678" class="call-btn">
+                    <label>
+                        Destination
+                        <input type="text" name="dropoff" placeholder="Exemple : 456 Boulevard de la République, 75016 Paris" required>
+                    </label>
+
+                    <label>
+                        Date
+                        <input type="date" name="date" required>
+                    </label>
+
+                    <label>
+                        Heure
+                        <input type="time" name="time" required>
+                    </label>
+                </div>
+
+                <label>
+                    Message
+                    <textarea name="message" rows="4" placeholder="Exemple : bagages, siège enfant, numéro de vol..."></textarea>
+                </label>
+
+                <button class="btn btn-primary submit-btn" type="submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Envoyer la demande
+                </button>
+
+                <p class="form-status" id="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="services" id="services">
+            <div class="section-heading">
+                <p class="eyebrow">Nos services</p>
+                <h2>Trajets du quotidien et longues distances</h2>
+            </div>
+
+            <div class="services-container">
+                <article class="service-card">
+                    <i class="fa-solid fa-plane"></i>
+                    <h3>Transferts aéroports</h3>
+                    <p>Orly, Roissy Charles-de-Gaulle, Beauvais et retours.</p>
+                </article>
+
+                <article class="service-card">
+                    <i class="fa-solid fa-train"></i>
+                    <h3>Gares parisiennes</h3>
+                    <p>Prise en charge vers toutes les gares de Paris.</p>
+                </article>
+
+                <article class="service-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Professionnels</h3>
+                    <p>Mise à disposition pour vos rendez-vous et événements.</p>
+                </article>
+
+                <article class="service-card">
+                    <i class="fa-solid fa-road"></i>
+                    <h3>Toutes distances</h3>
+                    <p>Déplacements en Île-de-France et partout en France.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="why-us" id="apropos">
+            <div class="why-image">
+                <img src="images/interieur.jpg" alt="Intérieur confortable du taxi">
+            </div>
+
+            <div class="why-content">
+                <p class="eyebrow">Pourquoi nous choisir ?</p>
+                <h2>Un service fiable, clair et disponible</h2>
+
+                <ul class="why-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Ponctualité et fiabilité</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Confort et discrétion</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Chauffeur professionnel</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Disponible 24h/24 et 7j/7</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta" id="contact">
+            <div class="cta-content">
+                <h2>Besoin d'un taxi maintenant ?</h2>
+                <p>Appelez directement ou envoyez une demande de réservation.</p>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="tel:0753172268" class="btn btn-light">
                     <i class="fa-solid fa-phone"></i>
                     Appeler
                 </a>
-
-                <a href="https://wa.me/33612345678"
-                   target="_blank"
-                   class="whatsapp-btn">
-
-                    <i class="fa-brands fa-whatsapp"></i>
+                <a href="#reservation" class="btn btn-primary">
+                    <i class="fa-solid fa-calendar-check"></i>
                     Réserver
                 </a>
-
             </div>
-
-        </div>
-
-    </section>
-    <!-- SERVICES -->
-
-<section class="services">
-    <section class="services" id="services">
-
-    <h2>Nos Services</h2>
-
-    <div class="services-container">
-
-        <!-- CARD 1 -->
-        <div class="service-card">
-
-            <i class="fa-solid fa-plane"></i>
-
-            <h3>Transferts Aéroports</h3>
-
-            <p>
-                Transferts vers tous les aéroports
-                de Paris.
-            </p>
-
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="service-card">
-
-            <i class="fa-solid fa-train"></i>
-
-            <h3>Gares</h3>
-
-            <p>
-                Déplacements vers toutes
-                les gares parisiennes.
-            </p>
-
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="service-card">
-
-            <i class="fa-solid fa-briefcase"></i>
-
-            <h3>Mise à disposition</h3>
-
-            <p>
-                Service privé pour vos trajets
-                professionnels et personnels.
-            </p>
-
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="service-card">
-
-            <i class="fa-solid fa-road"></i>
-
-            <h3>Toutes distances</h3>
-
-            <p>
-                Déplacements partout
-                en France.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- WHY US -->
-
-<section class="why-us">
-        <section class="why-us" id="apropos">
-
-    <!-- IMAGE -->
-    <div class="why-image">
-
-        <img src="images/interieur.jpg" alt="Intérieur Taxi">
-
-    </div>
-
-    <!-- CONTENT -->
-    <div class="why-content">
-
-        <h2>Pourquoi nous choisir ?</h2>
-
-        <div class="why-item">
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <p>Ponctualité et fiabilité</p>
-
-        </div>
-
-        <div class="why-item">
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <p>Confort et discrétion</p>
-
-        </div>
-
-        <div class="why-item">
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <p>Chauffeur professionnel</p>
-
-        </div>
-
-        <div class="why-item">
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <p>Disponible 24h/24 et 7j/7</p>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- CTA -->
-
-<section class="cta" id="contact">
-
-    <div class="cta-content">
-
-        <h2>Besoin d’un taxi maintenant ?</h2>
-
-        <p>
-            Contactez-nous directement par téléphone
-            ou réservez sur WhatsApp.
-        </p>
-
-    </div>
-
-    <div class="cta-buttons">
-
-        <a href="tel:0612345678" class="call-btn">
-            <i class="fa-solid fa-phone"></i>
-            Appeler
-        </a>
-
-        <a href="https://wa.me/33612345678"
-           target="_blank"
-           class="whatsapp-btn">
-
-            <i class="fa-brands fa-whatsapp"></i>
-            Réserver
-        </a>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
+        </section>
+    </main>
 
     <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-box">
+                <h3>G7</h3>
+                <p>Disponible 24h/24 et 7j/7 dans Paris et Île-de-France.</p>
+            </div>
 
-    <div class="footer-content">
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>07 53 17 22 68</p>
+                <p>bellahoues.ahcen@gmail.com</p>
+                <p>Paris - Île-de-France</p>
+            </div>
 
-        <!-- LEFT -->
-        <div class="footer-box">
-
-            <h3>TAXI PARIS</h3>
-
-            <p>
-                Disponible 24h/24 et 7j/7
-                dans Paris et Île-de-France.
-            </p>
-
+            <div class="footer-box">
+                <h3>Administration</h3>
+                <p><a href="admin.html">Voir les réservations</a></p>
+            </div>
         </div>
 
-        <!-- CENTER -->
-        <div class="footer-box">
-
-            <h3>Contact</h3>
-
-            <p>06 12 34 56 78</p>
-            <p>contact@taxiparis.fr</p>
-            <p>Paris - Île-de-France</p>
-
+        <div class="footer-bottom">
+            <p>© 2026 G7 - Tous droits réservés.</p>
         </div>
-
-        <!-- RIGHT -->
-        <div class="footer-box">
-
-            <h3>Liens</h3>
-
-            <p>Accueil</p>
-            <p>Services</p>
-            <p>Tarifs</p>
-            <p>Contact</p>
-
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-        <p>© 2025 Taxi Paris - Tous droits réservés.</p>
-
-    </div>
-
-</footer>
-
+    </footer>
 </body>
 </html>
